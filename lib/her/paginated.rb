@@ -1,7 +1,14 @@
-require "her/paginated/version"
+# -*- encoding : utf-8 -*-
+# lib/her/paginated.rb
+
+require 'her'
 
 module Her
   module Paginated
-    # Your code goes here...
   end
 end
+
+require 'her/paginated/collection'
+require 'her/paginated/header_parser'
+
+require 'her/paginated/version'
