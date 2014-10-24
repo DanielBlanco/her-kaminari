@@ -3,6 +3,8 @@
 module Her
   module Paginated
     class HeaderParser < Faraday::Response::Middleware
+
+      # @param [Hash] env environment
       def on_complete(env)
         @env = env
 
@@ -17,9 +19,13 @@ module Her
 
       private
 
-      def header(name)
-        @env.response_headers[name]
-      end
+        # Returns a response header value.
+        #
+        # @param [String] name of the header attribute
+        # @return [String] the response header value
+        def header(name)
+          @env.response_headers[name]
+        end
     end
   end
 end

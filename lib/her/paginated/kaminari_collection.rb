@@ -1,8 +1,10 @@
 # -*- encoding : utf-8 -*-
-# lib/her/paginated/collection.rb
+# lib/her/paginated/kaminari_collection.rb
+require 'kaminari'
+
 module Her
   module Paginated
-    module Collection
+    module KaminariCollection
       def self.included(base)
         base.class_eval do
           # support for kaminari pagination methods
@@ -13,16 +15,20 @@ module Her
       end
 
       module ClassMethods
+
+        # Creates a new paginated collection.
+        #
         # @return [Kaminari::PaginatableArray] a paginated collection
         def new_collection(parsed_data)
           collection = super(parsed_data)
           pagination = parsed_data[:pagination]
+          binding.pry
           Kaminari.paginate_array(collection, total_count: pagination[:total_count])
             .page(pagination[:page])
             .per(pagination[:per_page])
         end
+
       end
     end
   end
 end
-

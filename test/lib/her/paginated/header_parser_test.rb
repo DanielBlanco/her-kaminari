@@ -3,19 +3,18 @@
 require 'test_helper'
 
 describe Her::Paginated::HeaderParser do
-  include Rack::Test::Methods
 
-  subject { PaginatedAPI.new }
+  subject { Her::Paginated::HeaderParser.new }
+  let(:body) { { 'data' => [1,2,3,4,5] } }
+  let(:headers) { {'x-total'=>5, 'x-page'=> 1, 'x-per-page' => 3} }
 
-  def app
-    subject
-  end
-
-  let(:json) { JSON.parse(last_response.body) }
-
-  it 'must call paginated api' do
-    get '/', page: 1, per_page: 3
-    json.must_equal [1, 2, 3]
+  it 'parses pagination headers' do
+    env = OpenStruct.new(body: body, response_headers: headers)
+    subject.on_complete(env)
+    env[:body].tap do |json|
+      expected = {total_count: 5, per_page: 3, page: 1}
+      json[:pagination].must_equal expected
+    end
   end
 
 end
