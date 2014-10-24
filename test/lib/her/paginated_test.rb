@@ -2,12 +2,10 @@
 # test/lib/her/paginated_test.rb
 require 'test_helper'
 
-describe Her do
-  describe Paginated do
+describe Her::Paginated do
 
-    it "must be defined" do
-      Her::Paginated::VERSION.wont_be_nil
-    end
-
+  it "must be defined" do
+    Her::Paginated::VERSION.wont_be_nil
   end
+
 end

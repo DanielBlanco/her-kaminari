@@ -5,7 +5,7 @@ module Her
     module Collection
       def self.included(base)
         base.class_eval do
-          # support for grape kaminari
+          # support for kaminari pagination methods
           scope :page, ->(page) { where(page: page || 1) }
           scope :per,  ->(per_page) { where(per_page:  per_page || 50) }
         end
@@ -13,7 +13,7 @@ module Her
       end
 
       module ClassMethods
-        # return a paginated collection
+        # @return [Kaminari::PaginatableArray] a paginated collection
         def new_collection(parsed_data)
           collection = super(parsed_data)
           pagination = parsed_data[:pagination]

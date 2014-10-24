@@ -2,6 +2,7 @@
 # lib/her/paginated.rb
 
 require 'her'
+require 'kaminari'
 
 module Her
   module Paginated

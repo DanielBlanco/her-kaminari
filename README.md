@@ -2,6 +2,11 @@
 
 Makes [Her](https://github.com/remiprev/her "ORM that maps REST resources to Ruby objects") aware of APIs that return pagination headers like [grape-kaminari](https://github.com/monterail/grape-kaminari "kaminari paginator integration for grape API framework") gem.
 
+## Gem Dependencies
+
+* [Her](https://github.com/remiprev/her "ORM that maps REST resources to Ruby objects")
+* [Kaminari](https://github.com/amatsuda/kaminari "Paginator for Rails")
+
 ## Installation
 
 Add this line to your application's Gemfile:
