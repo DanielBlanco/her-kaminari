@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 # lib/her/paginated/kaminari_collection.rb
 require 'kaminari'
+require 'kaminari/models/array_extension'
 
 module Her
   module Paginated
@@ -22,7 +23,6 @@ module Her
         def new_collection(parsed_data)
           collection = super(parsed_data)
           pagination = parsed_data[:pagination]
-          binding.pry
           Kaminari.paginate_array(collection, total_count: pagination[:total_count])
             .page(pagination[:page])
             .per(pagination[:per_page])

@@ -8,8 +8,9 @@ require 'minitest/pride'
 require 'json'
 require 'rack/test'
 require 'pry'
+require 'grape'
 require 'her/paginated'
 
 require 'support/her_api'
-#require 'support/champion'
+
 

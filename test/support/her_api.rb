@@ -24,13 +24,16 @@ Her::API.setup url: 'https://api.example.com' do |c|
         { id: 8, name: 'Ashe' },
         { id: 9, name: 'Azir' }
       ]
-      page = env.params[:page] || 1
-      per_page = env.params[:per_page] || 5
+      page = (env.params['page'] || 1).to_i
+      per_page = (env.params['per_page'] || 5).to_i
       headers = {
         'x-total' => champions.size,
         'x-page' => page,
         'x-per-page' => per_page
       }
+      champions = Kaminari.paginate_array(champions, total_count: 9)
+        .page(page).per(per_page)
+      binding.pry
       [200, headers, champions.to_json]
     end
   end

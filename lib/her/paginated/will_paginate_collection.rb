@@ -1,8 +1,14 @@
 # -*- encoding : utf-8 -*-
 # lib/her/paginated/will_paginate_collection.rb
+require 'will_paginate'
+require 'will_paginate/collection'
+
 module Her
   module Paginated
     module WillPaginateCollection
+      def self.included(base)
+        base.extend(ClassMethods)
+      end
 
       module ClassMethods
 
