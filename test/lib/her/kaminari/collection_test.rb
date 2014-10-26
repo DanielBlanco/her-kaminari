@@ -1,12 +1,12 @@
 # -*- encoding : utf-8 -*-
-# test/lib/her/paginated/kaminari_collection_test.rb
+# test/lib/her/kaminari/collection_test.rb
 require 'test_helper'
 
-describe Her::Paginated::KaminariCollection do
+describe Her::Kaminari::Collection do
   before do
     class Champion
       include Her::Model
-      include Her::Paginated::KaminariCollection
+      include Her::Kaminari::Collection
     end
   end
 

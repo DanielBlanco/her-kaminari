@@ -1,4 +1,4 @@
-# Her::Paginated
+# Her::Kaminari
 
 Makes [Her](https://github.com/remiprev/her "ORM that maps REST resources to Ruby objects") aware of APIs that return pagination headers like [grape-kaminari](https://github.com/monterail/grape-kaminari "kaminari paginator integration for grape API framework") gem.
 
@@ -12,7 +12,7 @@ Makes [Her](https://github.com/remiprev/her "ORM that maps REST resources to Rub
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'her-paginated'
+gem 'her-kaminari'
 ```
 
 And then execute:
@@ -21,7 +21,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install her-paginated
+    $ gem install her-kaminari
 
 ## Usage
 
@@ -33,7 +33,7 @@ After reading [How to pass pagination headers with Kaminari, Her and Grape?](htt
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/her-paginated/fork )
+1. Fork it ( https://github.com/[my-github-username]/her-kaminari/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

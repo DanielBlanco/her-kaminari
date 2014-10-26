@@ -9,8 +9,6 @@ require 'json'
 require 'rack/test'
 require 'pry'
 require 'grape'
-require 'her/paginated'
-
+require 'her/kaminari'
 require 'support/her_api'
-
 

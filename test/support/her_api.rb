@@ -7,7 +7,7 @@ Her::API.setup url: 'https://api.example.com' do |c|
   c.use Faraday::Request::UrlEncoded
 
   # Response
-  c.use Her::Paginated::HeaderParser
+  c.use Her::Kaminari::HeaderParser
   c.use Her::Middleware::DefaultParseJSON
 
   # Adapter

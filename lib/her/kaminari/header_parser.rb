@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 # lib/her/paginated/header_parser.rb
 module Her
-  module Paginated
+  module Kaminari
     class HeaderParser < Faraday::Response::Middleware
 
       # @param [Hash] env environment

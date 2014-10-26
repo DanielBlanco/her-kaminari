@@ -4,8 +4,8 @@ require 'kaminari'
 require 'kaminari/models/array_extension'
 
 module Her
-  module Paginated
-    module KaminariCollection
+  module Kaminari
+    module Collection
       def self.included(base)
         base.class_eval do
           # support for kaminari pagination methods

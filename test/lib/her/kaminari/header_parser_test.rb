@@ -1,10 +1,10 @@
 # -*- encoding : utf-8 -*-
-# test/lib/her/paginated_test.rb
+# test/lib/her/kaminari_test.rb
 require 'test_helper'
 
-describe Her::Paginated::HeaderParser do
+describe Her::Kaminari::HeaderParser do
 
-  subject { Her::Paginated::HeaderParser.new }
+  subject { Her::Kaminari::HeaderParser.new }
   let(:body) { { 'data' => [1,2,3,4,5] } }
   let(:headers) { {'x-total'=>5, 'x-page'=> 1, 'x-per-page' => 3} }
 
