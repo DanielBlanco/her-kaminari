@@ -8,6 +8,10 @@ Her models can now query these APIs like any other kaminari model:
   User.page(1).per(10)
 ```
 
+**IMPORTANT:** Pagination is done by the API not by this gem, this gem just parses
+the response data and creates a Kaminari compatible collection that you can use in
+your views.
+
 ## Gem Dependencies
 
 * [Her](https://github.com/remiprev/her "ORM that maps REST resources to Ruby objects")
@@ -35,27 +39,23 @@ First include Her::Kaminari::HeaderParser in your Her setup like this:
 
 ```ruby
 Her::API.setup url: 'https://api.example.com' do |c|
-
   #...
 
   # Response
   c.use Her::Kaminari::HeaderParser
 
   # ...
+end
 ```
 
 HeaderParser expects that the API request returns the following headers:
 
 ```
-X-Total: 42
-X-Page: 3
-X-Per-Page: 10
-X-Offset: 10 (optional)
+X-Total: Total number of records.
+X-Page: Current page number.
+X-Per-Page: Number of records per page.
+X-Offset: (optional) the starting point for the return data.
 ```
-
-**IMPORTANT:** Pagination is done by the API not by this gem, this gem just parses
-the response data and creates a Kaminari compatible collection that you can use in
-your views.
 
 
 Then include Her::Kaminari::Collection in your Her model like this:
