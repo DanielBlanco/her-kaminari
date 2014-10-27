@@ -31,7 +31,7 @@ Or install it yourself as:
 
 ## Usage
 
-1. Include Her::Kaminari::HeaderParser in your Her setup like this:
+First include Her::Kaminari::HeaderParser in your Her setup like this:
 
 ```ruby
 Her::API.setup url: 'https://api.example.com' do |c|
@@ -53,7 +53,12 @@ X-Per-Page: 10
 X-Offset: 10 (optional)
 ```
 
-2. Include Her::Kaminari::Collection in your Her model like this:
+**IMPORTANT:** Pagination is done by the API not by this gem, this gem just parses
+the response data and creates a Kaminari compatible collection that you can use in
+your views.
+
+
+Then include Her::Kaminari::Collection in your Her model like this:
 
 ```ruby
 class User
