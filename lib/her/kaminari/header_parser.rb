@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-# lib/her/paginated/header_parser.rb
+# lib/her/kaminari/header_parser.rb
 module Her
   module Kaminari
     class HeaderParser < Faraday::Response::Middleware
@@ -13,9 +13,6 @@ module Her
           per_page:    (header("x-per-page") || env.body[:data].count).to_i,
           page:        header("x-page").to_i,
           offset:      header('x-offset').to_i
-          #total_pages: header('x-total-pages').to_i,
-          #next_page:   header('x-next-page').to_i,
-          #prev_page:   header('x-prev-page').to_i,
         }
 
         env[:body].merge!(pagination: pagination)

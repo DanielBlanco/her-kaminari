@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-# lib/her/paginated.rb
+# lib/her/kaminari.rb
 
 require 'her'
 

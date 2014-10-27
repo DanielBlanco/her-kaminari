@@ -2,6 +2,12 @@
 
 Makes [Her](https://github.com/remiprev/her "ORM that maps REST resources to Ruby objects") aware of APIs that return pagination headers like [grape-kaminari](https://github.com/monterail/grape-kaminari "kaminari paginator integration for grape API framework") gem.
 
+Her models can now query these APIs like any other kaminari model:
+
+```ruby
+  User.page(1).per(10)
+```
+
 ## Gem Dependencies
 
 * [Her](https://github.com/remiprev/her "ORM that maps REST resources to Ruby objects")
@@ -25,7 +31,7 @@ Or install it yourself as:
 
 ## Usage
 
-Include Her::Kaminari::HeaderParser in your Her setup like this:
+1. Include Her::Kaminari::HeaderParser in your Her setup like this:
 
 ```ruby
 Her::API.setup url: 'https://api.example.com' do |c|
@@ -38,7 +44,16 @@ Her::API.setup url: 'https://api.example.com' do |c|
   # ...
 ```
 
-Include Her::Kaminari::Collection in your Her model like this:
+HeaderParser expects that the API request returns the following headers:
+
+```
+X-Total: 42
+X-Page: 3
+X-Per-Page: 10
+X-Offset: 10 (optional)
+```
+
+2. Include Her::Kaminari::Collection in your Her model like this:
 
 ```ruby
 class User
@@ -46,6 +61,8 @@ class User
   include Her::Kaminari::Collection
 end
 ```
+
+Now you can use your Her model like any other Kaminari model.
 
 ## History
 

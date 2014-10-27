@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-# lib/her/paginated/kaminari_collection.rb
+# lib/her/kaminari/collection.rb
 require 'kaminari'
 require 'kaminari/models/array_extension'
 
@@ -18,6 +18,8 @@ module Her
       module ClassMethods
 
         # Creates a new paginated collection from API data.
+        # This method makes the assumption the collection was already paginated
+        # by the API.
         #
         # @return [Kaminari::PaginatableArray] a paginated collection
         def new_collection(parsed_data)
@@ -26,7 +28,7 @@ module Her
           collection = ::Kaminari::PaginatableArray.new(
             collection,
             total_count: pagination[:total_count],
-            limit: pagination[:per_page],
+            limit: pagination[:per_page]
           ).tap do |array|
             array.extend ::Kaminari::PageScopeMethods
             array.singleton_class.class_eval do
