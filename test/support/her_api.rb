@@ -31,9 +31,7 @@ Her::API.setup url: 'https://api.example.com' do |c|
         'x-page' => page,
         'x-per-page' => per_page
       }
-      champions = Kaminari.paginate_array(champions, total_count: 9)
-        .page(page).per(per_page)
-      binding.pry
+      champions = ::Kaminari.paginate_array(champions).page(page).per(per_page)
       [200, headers, champions.to_json]
     end
   end

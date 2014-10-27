@@ -25,7 +25,27 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Include Her::Kaminari::HeaderParser in your Her setup like this:
+
+```ruby
+Her::API.setup url: 'https://api.example.com' do |c|
+
+  #...
+
+  # Response
+  c.use Her::Kaminari::HeaderParser
+
+  # ...
+```
+
+Include Her::Kaminari::Collection in your Her model like this:
+
+```ruby
+class User
+  include Her::Model
+  include Her::Kaminari::Collection
+end
+```
 
 ## History
 

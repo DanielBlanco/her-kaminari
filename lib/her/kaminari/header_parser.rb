@@ -11,7 +11,11 @@ module Her
         pagination = {
           total_count: header("x-total").to_i,
           per_page:    (header("x-per-page") || env.body[:data].count).to_i,
-          page:        header("x-page").to_i
+          page:        header("x-page").to_i,
+          offset:      header('x-offset').to_i
+          #total_pages: header('x-total-pages').to_i,
+          #next_page:   header('x-next-page').to_i,
+          #prev_page:   header('x-prev-page').to_i,
         }
 
         env[:body].merge!(pagination: pagination)

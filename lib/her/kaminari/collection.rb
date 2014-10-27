@@ -17,15 +17,33 @@ module Her
 
       module ClassMethods
 
-        # Creates a new paginated collection.
+        # Creates a new paginated collection from API data.
         #
         # @return [Kaminari::PaginatableArray] a paginated collection
         def new_collection(parsed_data)
           collection = super(parsed_data)
           pagination = parsed_data[:pagination]
-          Kaminari.paginate_array(collection, total_count: pagination[:total_count])
-            .page(pagination[:page])
-            .per(pagination[:per_page])
+          collection = ::Kaminari::PaginatableArray.new(
+            collection,
+            total_count: pagination[:total_count],
+            limit: pagination[:per_page],
+          ).tap do |array|
+            array.extend ::Kaminari::PageScopeMethods
+            array.singleton_class.class_eval do
+
+              # @return [Integer] our API page number
+              define_method :current_page do
+                pagination[:page]
+              end
+
+              # @return [Integer] our API offset number
+              define_method :offset_value do
+                pagination[:offset]
+              end
+
+            end
+          end
+          collection
         end
 
       end
