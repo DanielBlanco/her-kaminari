@@ -18,14 +18,14 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency 'her', '>= 0.7.2'
-  spec.add_runtime_dependency 'kaminari', '>= 0.16.1'
+  spec.add_runtime_dependency 'her', '~> 0.7', '>= 0.7.2'
+  spec.add_runtime_dependency 'kaminari', '~> 0.16.1', '>= 0.16.1'
 
   spec.add_development_dependency 'bundler', '~> 1.7'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'minitest', '~> 5.0'
-  spec.add_development_dependency 'pry', '>= 0.10.1'
-  spec.add_development_dependency 'guard', '>= 2.6.1'
-  spec.add_development_dependency 'guard-minitest', '>= 2.3.2'
-  spec.add_development_dependency 'grape', '>= 0.9.0' # <= Just to shut up kaminari warning
+  spec.add_development_dependency 'pry', '~> 0.10.1', '>= 0.10.1'
+  spec.add_development_dependency 'guard', '~> 2.6.1', '>= 2.6.1'
+  spec.add_development_dependency 'guard-minitest', '~> 2.3.2', '>= 2.3.2'
+  spec.add_development_dependency 'grape', '~> 0.9.0', '>= 0.9.0' # <= Just to shut up kaminari warning
 end
