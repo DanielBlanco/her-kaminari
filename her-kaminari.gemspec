@@ -6,7 +6,7 @@ require 'her/kaminari/version'
 Gem::Specification.new do |spec|
   spec.name          = "her-kaminari"
   spec.version       = Her::Kaminari::VERSION
-  spec.authors       = ["Daniel Blanco Rojas"]
+  spec.authors       = ["Daniel Blanco Rojas, Artur Hebda"]
   spec.email         = ["daniel.blancorojas@gmail.com"]
   spec.summary       = %q{Kaminari pagination for Her models.}
   spec.description   = %q{Makes Her aware of APIs that return pagination headers.}
