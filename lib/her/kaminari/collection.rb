@@ -13,6 +13,7 @@ module Her
           scope :per,  ->(per_page) { where(per_page:  per_page || 50) }
         end
         base.extend(ClassMethods)
+        base::Relation.include(Her::Kaminari::RelationExtension)
       end
 
       module ClassMethods
