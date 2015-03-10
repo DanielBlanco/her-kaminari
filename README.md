@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/DanielBlanco/her-kaminari.svg?branch=db%2Ftravis-coverall)](https://travis-ci.org/DanielBlanco/her-kaminari)
 
+[![Coverage Status](https://coveralls.io/repos/DanielBlanco/her-kaminari/badge.svg)](https://coveralls.io/r/DanielBlanco/her-kaminari)
+
 Makes [Her](https://github.com/remiprev/her "ORM that maps REST resources to Ruby objects") aware of APIs that return pagination headers like [grape-kaminari](https://github.com/monterail/grape-kaminari "kaminari paginator integration for grape API framework") gem.
 
 Her models can now query these APIs like any other kaminari model:
