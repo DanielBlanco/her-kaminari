@@ -2,6 +2,9 @@
 # test/test_helper.rb
 ENV['RACK_ENV'] = 'test'
 
+require 'coveralls'
+Coveralls.wear!
+
 require 'minitest/spec'
 require 'minitest/autorun'
 require 'minitest/pride'
