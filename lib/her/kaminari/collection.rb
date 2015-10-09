@@ -10,7 +10,8 @@ module Her
         base.class_eval do
           # support for kaminari pagination methods
           scope :page, ->(page) { where(page: page || 1) }
-          scope :per,  ->(per_page) { where(per_page:  per_page || 50) }
+          scope :per, ->(per_page) { where(per_page:  per_page || 50) }
+          # NOTE: Is it necessary to add offset & limit, I don't think so?
         end
         base.extend(ClassMethods)
         base::Relation.send(:include, Her::Kaminari::RelationExtension)

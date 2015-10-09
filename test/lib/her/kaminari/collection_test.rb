@@ -12,11 +12,11 @@ describe Her::Kaminari::Collection do
 
   it 'should query by kaminari methods' do
     champions = Champion.page(2).per(2)
-    #binding.pry
     champions.size.must_equal 2
     champions.current_page.must_equal 2
     champions.total_count.must_equal 9
     champions.first.id.must_equal 3
+    champions.offset_value.must_equal 0
   end
 
 end
